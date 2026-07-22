@@ -1,0 +1,264 @@
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #050b14;
+    color: #e2e8f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 95%; 
+    max-width: 1200px;
+    padding: 30px 20px;
+}
+
+.clients-zone {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 10;
+}
+
+.client-box {
+    padding: 20px;
+    border-radius: 8px;
+    width: 28%;
+    text-align: center;
+    position: relative;
+    border: 1px solid #1e293b;
+    overflow: hidden;
+}
+
+h3 {
+    margin-top: 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+#client1-box {
+    background-color: #0b1120; 
+    background-image: linear-gradient(180deg, rgba(0, 195, 255, 0.15) 0%, rgba(11, 17, 32, 1) 100%);
+    border-top: 3px solid #00c3ff;
+    box-shadow: 0 10px 30px rgba(0, 195, 255, 0.05);
+}
+
+#client1-box h3 { color: #00c3ff; }
+#client1-box button { color: #00c3ff; border-color: #00c3ff; }
+#client1-box button:hover { background: #00c3ff; color: #050b14; box-shadow: 0 0 15px rgba(0, 195, 255, 0.4); }
+
+#client2-box {
+    background-color: #0b1120; 
+    background-image: linear-gradient(180deg, rgba(255, 0, 85, 0.15) 0%, rgba(11, 17, 32, 1) 100%);
+    border-top: 3px solid #ff0055;
+    box-shadow: 0 10px 30px rgba(255, 0, 85, 0.05);
+}
+
+#client2-box h3 { color: #ff0055; }
+#client2-box button { color: #ff0055; border-color: #ff0055; }
+#client2-box button:hover { background: #ff0055; color: #050b14; box-shadow: 0 0 15px rgba(255, 0, 85, 0.4); }
+
+#client3-box {
+    background-color: #0b1120; 
+    background-image: linear-gradient(180deg, rgba(57, 255, 20, 0.15) 0%, rgba(11, 17, 32, 1) 100%);
+    border-top: 3px solid #39ff14;
+    box-shadow: 0 10px 30px rgba(57, 255, 20, 0.05);
+}
+
+#client3-box h3 { color: #39ff14; }
+#client3-box button { color: #39ff14; border-color: #39ff14; }
+#client3-box button:hover { background: #39ff14; color: #050b14; box-shadow: 0 0 15px rgba(57, 255, 20, 0.4); }
+
+.display {
+    background: #000;
+    color: #fff; 
+    padding: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    height: 40px;
+    margin: 15px 0;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid #111;
+    transition: background-color 0.3s ease;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.inputs input:focus {
+    outline: none;
+    border-color: #cbd5e1;
+}
+
+.inputs button {
+    width: 100%;
+    background: transparent;
+    padding: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.inputs input {
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #334155;
+    background: #050b14;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: border-color 0.3s;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+}
+
+.cables-zone {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    z-index: 1; 
+    margin-top: -20px; 
+    margin-bottom: -20px; 
+}
+
+.cable {
+    width: 18px; 
+    background: #080d1a; 
+    height: 100%;
+    position: relative;
+    border-radius: 10px;
+    border-left: 1px solid #1e293b;
+    border-right: 1px solid #1e293b;
+    box-shadow: inset 0 0 10px rgba(0,0,0,1); 
+    overflow: hidden; 
+}
+
+.package-visual {
+    position: absolute;
+    left: 0;
+    width: 100%; 
+    height: 40px;
+    background: rgba(0, 255, 65, 0.4); 
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.4); 
+    opacity: 0; 
+}
+
+.package-visual.moving {
+    opacity: 1;
+    animation: movePulseDown 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.package-visual.returning {
+    opacity: 1;
+    animation: returnPulseUp 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes movePulseDown {
+    0% { top: 0%; height: 20px; }
+    15% { height: 60px; }
+    85% { height: 60px; }
+    100% { top: 100%; height: 20px; }
+}
+
+@keyframes returnPulseUp {
+    0% { top: 100%; height: 20px; }
+    15% { height: 60px; }
+    85% { height: 60px; }
+    100% { top: 0%; height: 20px; }
+}
+
+.server-zone {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.server-box {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    color: #cbd5e1;
+    padding: 25px;
+    border-radius: 8px;
+    width: 85%; 
+    text-align: center;
+    box-shadow: 0 -10px 35px rgba(0,0,0,0.4); 
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden; 
+}
+
+.server-box h2 {
+    margin: 0 0 10px 0;
+    font-weight: 300;
+    letter-spacing: 3px;
+    font-size: 22px;
+}
+
+.server-status-bar {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.server-box.active {
+    border-color: #00ff41;
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.2), inset 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+.server-box.active .server-status-bar {
+    color: #00ff41;
+}
+
+.server-box::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2px; 
+    background: #00ff41;
+    box-shadow: 0 0 15px #00ff41, 0 0 30px #00ff41; 
+    opacity: 0; 
+    pointer-events: none;
+    z-index: 5;
+}
+
+.server-box.active::after {
+    opacity: 1;
+    animation: scanAnimation 1.5s ease-in-out infinite; 
+}
+
+@keyframes scanAnimation {
+    0% { top: 0%; }
+    50% { top: 100%; }
+    100% { top: 0%; }
+}
+
+@keyframes jumpReceive {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); border-color: #fff; box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2); }
+    100% { transform: translateY(0); }
+}
+
+.message-received-anim {
+    animation: jumpReceive 0.6s ease-out;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Comm Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="clients-zone">
+        
+        <div class="client-box" id="client1-box">
+            <h3>Police</h3>
+            <div class="display" id="display-client1">Awaiting signal...</div>
+            <div class="inputs">
+                <input type="text" id="to-client1" placeholder="Target (Mada/Civilian)" autocomplete="off">
+                <input type="text" id="mes-client1" placeholder="Enter message data" autocomplete="off">
+                <button id="btn-client1">TRANSMIT</button>
+            </div>
+        </div>
+
+        <div class="client-box" id="client2-box">
+            <h3>MADA</h3>
+            <div class="display" id="display-client2">Awaiting signal...</div>
+            <div class="inputs">
+                <input type="text" id="to-client2" placeholder="Target (Police/Civilian)" autocomplete="off">
+                <input type="text" id="mes-client2" placeholder="Enter message data" autocomplete="off">
+                <button id="btn-client2">TRANSMIT</button>
+            </div>
+        </div>
+
+        <div class="client-box" id="client3-box">
+            <h3>Room status</h3>
+            <div class="display" id="display-client3">Awaiting signal...</div>
+            <div class="inputs">
+                <input type="text" id="to-client3" placeholder="Target (Police/Mada)" autocomplete="off">
+                <input type="text" id="mes-client3" placeholder="Enter message data" autocomplete="off">
+                <button id="btn-client3">TRANSMIT</button>
+            </div>
+        </div>
+    </div>  
+
+    <div class="cables-zone">
+        <div class="cable"><div class="package-visual" id="c1"></div></div>
+        <div class="cable"><div class="package-visual" id="c2"></div></div>
+        <div class="cable"><div class="package-visual" id="c3"></div></div>
+    </div>
+
+    <div class="server-zone">
+        <div class="server-box" id="server-main">
+            <h2>CORE DATA SERVER</h2>
+            <div class="server-status-bar">System Online</div>
+        </div>
+    </div>
+</div>
+
+<script src="js/package.js"></script>
+<script src="js/cable.js"></script>
+<script src="js/server.js"></script>
+<script src="js/client.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
